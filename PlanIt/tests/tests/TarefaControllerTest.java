@@ -110,4 +110,24 @@ public class TarefaControllerTest {
         assertEquals(tarefaAndamento.getStatus(), "finalizado");
         assertEquals(tarefaFinalizada.getStatus(), "em_andamento");
     }
+    
+       @Test
+    public void removerParticipanteTarefaTest(){
+    	Date prazo = new Date(2001,11,03);
+    	Tarefa tarefa = new Tarefa(2, "testeAtualizado", "tarefa teste", "em_andamento", prazo, 1);
+    	Usuario usuario = new Usuario(1, "teste", "testeAtualizado@gmail.com", "12345");
+    	TarefaUsuario participante_removido = new TarefaUsuario(2, 1);
+    	boolean deletadoFalse = TarefaController.removerParticipanteTarefa(participante_removido);
+    	assertFalse(deletadoFalse);
+    }
+    
+    @Test
+    public void adicionarParticipanteTest(){
+    	Date prazo = new Date(2001,11,03);
+    	Tarefa tarefa = new Tarefa(2, "testeAtualizado", "tarefa teste", "em_andamento", prazo, 1);
+    	Usuario usuario = new Usuario(1, "teste", "testeAtualizado@gmail.com", "12345");
+    	TarefaUsuario participante_adicionado = new TarefaUsuario(2, 1);
+    	boolean adicionadoFalse = TarefaController.adicionarParticipante(participante_adicionado);
+    	assertFalse(adicionadoFalse);
+    }
 }
